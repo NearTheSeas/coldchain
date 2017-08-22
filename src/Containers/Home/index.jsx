@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
-import axios from 'axios'
+import {connect} from 'react-redux'
 
-import Header from '../../Components/Header'
-import Footer from '../../Components/Footer'
-import QuickNav from '../../Components/QuickNav'
-import Slider from '../../Components/Slider'
-import Main from '../../Components/Main'
-import List from '../../Components/List'
+import {fetchHotSalesIfNeeded} from 'Redux/Action'
+
+import Header from 'Components/Header'
+import Footer from 'Components/Footer'
+import QuickNav from 'Components/QuickNav'
+import Slider from 'Components/Slider'
+import Main from 'Components/Main'
+import List from 'Components/List'
 
 import {Link} from 'react-router-dom'
 
@@ -19,14 +21,11 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    axios
-      .get('/api/products/hotSale?shopSign=50441b8a2a1b00b6')
-      .then(res => {
-        this.setState({hotSales: res.data.data})
-      })
+    const {dispatch, selectShop} = this.props
+    dispatch(fetchHotSalesIfNeeded(selectShop))
   }
   render() {
-    const {hotSales} = this.state
+    const {hotSaleItems} = this.props
     return (
       <div>
         <Header rightContent={< Link to = '/login' > 登录 </Link>}>
@@ -35,7 +34,7 @@ class Home extends Component {
         <Main header footer>
           <Slider/>
           <QuickNav/>
-          <List listdatas={hotSales} />
+          <List listdatas={hotSaleItems}/>
         </Main>
         <Footer/>
       </div>
@@ -43,6 +42,14 @@ class Home extends Component {
   }
 }
 
+const mapStatesToProps = state => {
+  const {selectShop, hotSalesByShop} = state
+  const {isFetching, hotSaleItems} = hotSalesByShop[selectShop] || {
+    isFetching: true,
+    items: []
+  }
 
+  return {selectShop, hotSaleItems, isFetching}
+}
 
-export default Home
+export default connect(mapStatesToProps)(Home)

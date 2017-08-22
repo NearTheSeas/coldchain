@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {addProduct, removeProduct} from '../../Redux/Action'
+import {addProduct, removeProduct} from 'Redux/Action'
 
-import Header from '../../Components/Header'
-import Main from '../../Components/Main'
-import ShopCart from '../../Components/ShopCart'
+import Header from 'Components/Header'
+import Main from 'Components/Main'
+import ShopCart from 'Components/ShopCart'
 import './cart.scss'
 
 class Cart extends Component {

@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import axios from 'axios'
 
 import './productDetail.scss'
-import Header from '../../Components/Header'
-import Main from '../../Components/Main'
-import ShopCart from '../../Components/ShopCart'
+import Header from 'Components/Header'
+import Main from 'Components/Main'
+import ShopCart from 'Components/ShopCart'
 
 import {Link} from 'react-router-dom'
 
