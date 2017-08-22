@@ -1,0 +1,52 @@
+@import '../../style/minxin.scss';
+.cart-list-wrapper {
+  background-color: #fff;
+  .cart-list-item {
+    background-color: #fff;
+    padding: .6rem .4rem;
+    border-bottom: 1px solid #f8f8f8;
+    word-break: break-all;
+    overflow: hidden;
+    .img-wrapper {
+      margin-right: .4rem;
+      position: relative;
+      text-align: center;
+      width: 3rem;
+      float:left;
+      img {
+        max-width: 3rem;
+        height: 3rem;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    .desc-wrapper {
+      box-sizing: border-box;
+      width: 100%;
+      padding-left: 3.4rem;
+      margin: .2rem 0;
+      
+      .desc-head {
+        @include sc(.9rem, #333);
+        margin-bottom: .5rem;
+      }
+      .desc {
+        position: relative;
+        .price {
+          float:left;
+          @include sc(.75rem, #f60);
+        }
+        .cart-btns{
+          float:right;
+          @include sc(.65rem, #666);
+          span{
+            display:inline-block;
+            width: 1rem;
+            height: 1rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

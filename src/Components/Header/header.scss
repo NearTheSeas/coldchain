@@ -1,0 +1,41 @@
+@import '../../style/minxin.scss';
+.header {
+  background-color: $mainColor;
+  height: $headerHeight;
+  line-height: $headerHeight;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  .header-left,
+  .header-title,
+  .header-right {
+    display: flex;
+    flex: 1;
+    height: 100%;
+  }
+  .header-left {
+    padding-left: .75rem;
+    width: 2rem;
+    .back {
+      display: inline-block;
+      @include wh(2.2rem, 100%);
+      background-image: url('../../images/arrow_left@2x.png');
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 25%;
+    }
+  }
+  .header-title {
+    justify-content: center;
+    @include sc(.8rem,
+    #fff);
+  }
+  .header-right {
+    padding-right: .75rem;
+    justify-content: flex-end;
+    a {
+      @include sc(.7rem,
+      #fff);
+    }
+  }
+}

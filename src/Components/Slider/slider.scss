@@ -1,0 +1,15 @@
+@import '../../style/minxin.scss';
+.slider-container {
+  height: 7.5rem;
+  .slider-wrapper {
+    height: 100%;
+    .slider-item {
+      width: 100%;
+      height: 100%;
+      background-image: url('../../images/banner2@2x.png');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center center;
+    }
+  }
+}
